@@ -47,7 +47,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 public class Alti extends Activity implements SensorEventListener {
 
     private SensorManager sensorManager;
-    private Sensor senAccelerometer;
     private Sensor sensor;
     private TextView sensorValue;
     private TextView gpsValue;
@@ -69,7 +68,6 @@ public class Alti extends Activity implements SensorEventListener {
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
-        senAccelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         sensorValue = (TextView) findViewById(R.id.sensorValue);
         li = new speed();
         try {
