@@ -44,7 +44,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
         abstract void draw();
 }
 
-public class Alti extends Activity implements SensorEventListener {
+public class Alti extends Activity implements SensorEventListener  {
 
     private SensorManager sensorManager;
     private Sensor sensor;
@@ -71,7 +71,8 @@ public class Alti extends Activity implements SensorEventListener {
         sensorValue = (TextView) findViewById(R.id.sensorValue);
         li = new speed();
         try {
-        locManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, li);
+        locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, li);
         } catch (SecurityException e) {
             Log.v("GPS error",e.toString()); // currently a standard log., change to user pop up for production
         }
